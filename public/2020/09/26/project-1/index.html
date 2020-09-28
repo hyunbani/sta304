@@ -1,15 +1,78 @@
----
-title: "Homicide in Toronto"
-author: "Rachel Hyunbin Oh"
-date: 2020-09-26T21:13:14-05:00
-abstract: "Four sentences"
-bibliography: "references.bib"
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
----
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.75.1" />
 
-<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
-<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+<title>Project 1 - Rachel&#39;s website</title>
+<meta property="og:title" content="Project 1 - Rachel&#39;s website">
+
+
+  <link href='../../../../favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about/">About</a></li>
+    
+    <li><a href="https://github.com/hyunbani/sta304">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Project 1</h1>
+
+    
+    <span class="article-date">2020-09-26</span>
+    
+
+    <div class="article-content">
+      
+<script src="../../../../rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="../../../../rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <div id="introduction" class="section level1">
@@ -893,30 +956,6 @@ ObjectId
 </tr>
 </tbody>
 </table>
-<p><img src="/post/project-1_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p><img src="/post/project-1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre class="r"><code>data %&gt;% filter(
-  Homicide_Type == &quot;Shooting&quot;
-) %&gt;%
-  ggplot(aes(x = Occurrence_year)) +
-  geom_bar() +
-  labs(x = &quot;Occurrence Year&quot;,
-       y = &quot;Number&quot;,
-       title = &quot;Cases of Shooting in Toronto&quot;,
-       caption = &quot;Source: Toronto Police Services (2020)&quot;) +
-  theme_light()</code></pre>
-<p><img src="/post/project-1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="r"><code>data %&gt;% filter(
-  Homicide_Type == &quot;Stabbing&quot;
-) %&gt;%
-  ggplot(aes(x = Occurrence_year)) +
-  geom_bar() +
-  labs(x = &quot;Occurrence Year&quot;,
-       y = &quot;Number&quot;,
-       title = &quot;Cases of Stabbing in Toronto&quot;,
-       caption = &quot;Source: Toronto Police Services (2020)&quot;) +
-  theme_light()</code></pre>
-<p><img src="/post/project-1_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
 <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
@@ -933,31 +972,48 @@ ObjectId
 <div id="including-plots" class="section level2">
 <h2>Including Plots</h2>
 <p>You can also embed plots, for example:</p>
-<p><img src="/post/project-1_files/figure-html/pressure-1.png" width="672" /></p>
+<p><img src="../../../../post/project-1_files/figure-html/pressure-1.png" width="672" /></p>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
 </div>
-<div id="references" class="section level1">
-<h1>References</h1>
-<ul>
-<li>Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. R
-package version 2.3.2. <a href="https://CRAN.R-project.org/package=devtools" class="uri">https://CRAN.R-project.org/package=devtools</a></li>
-<li>Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020). dplyr: A Grammar of Data
-Manipulation. R package version 1.0.0. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></li>
-<li>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
-<a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></li>
-<li>Toronto Police Services (2020). Homicide: This dataset includes all Homicides from 2004 to 2019. <a href="https://open.toronto.ca/dataset/homicide/" class="uri">https://open.toronto.ca/dataset/homicide/</a><br />
-</li>
-<li>JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a></li>
-<li>R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></li>
-<li>Hao Zhu (2020). kableExtra: Construct Complex Table
-with ‘kable’ and Pipe Syntax.
-<a href="http://haozhu233.github.io/kableExtra/" class="uri">http://haozhu233.github.io/kableExtra/</a>,
-<a href="https://github.com/haozhu233/kableExtra" class="uri">https://github.com/haozhu233/kableExtra</a>.</li>
-<li>Elin Waring, Michael Quinn, Amelia McNamara, Eduardo
-Arino de la Rubia, Hao Zhu and Shannon Ellis (2020).
-skimr: Compact and Flexible Summaries of Data.
-<a href="https://docs.ropensci.org/skimr" class="uri">https://docs.ropensci.org/skimr</a> (website),
-<a href="https://github.com/ropensci/skimr" class="uri">https://github.com/ropensci/skimr</a>.</li>
-</ul>
-</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

@@ -1,7 +1,8 @@
 ---
-title: "Project 1"
+title: "Homicide in Toronto"
 author: "Rachel Hyunbin Oh"
-date: 2020-09-24T21:13:14-05:00
+date: 2020-09-26T21:13:14-05:00
+abstract: "Four sentences"
 bibliography: "references.bib"
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
@@ -9,7 +10,108 @@ tags: ["R Markdown", "plot", "regression"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#install.packages("tidyverse")
+#install.packages("devtools")
+#install.packages("ggplot2")
+#devtools::install_github("sharlagelfand/opendatatoronto")
+#install.packages("skimr")
+#install.packages("kableExtra")
+
+library(kableExtra)
+library(tidyverse)
+library(ggplot2)
+library(opendatatoronto)
+library(dplyr)
+library(skimr)
 ```
+
+```{r, echo=FALSE}
+package <- show_package("7d72bbbe-8adc-4b36-8ad1-5359f1c7a9cc")
+
+resources <- list_package_resources("7d72bbbe-8adc-4b36-8ad1-5359f1c7a9cc")
+
+datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
+
+data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+```
+
+
+# Introduction
+
+Three paragraph statement.
+
+First paragraph: General. Motivational. Majors specific finding. 
+
+Second paragraph: More about what you did and found.
+
+Third paragraph: Outline of the paper. Future work. Weaknesses.
+
+# Data
+
+The Open Data Toronto Dataset is ...
+```{r, message=FALSE, warning=FALSE}
+kable(head(data)) %>%
+  kable_styling(font_size = 7)
+```
+
+
+
+```{r, message=FALSE, warning=FALSE}
+skimr::skim(data)
+```
+
+
+
+```{r, echo=FALSE}
+data %>%
+  ggplot(aes(x = Occurrence_year)) +
+  geom_bar() +
+  labs(x = "Occurrence Year",
+       y = "Number",
+       title = "Occurence Year of Homicide in Toronto",
+       caption = "Source: Toronto Police Services (2020)") +
+  theme_light()
+```
+
+
+```{r, echo=FALSE}
+data %>%
+  ggplot(aes(x = Homicide_Type)) +
+  geom_bar() +
+  labs(x = "Homicide Type",
+       y = "Number",
+       title = "Distribution of Homicide Type in Toronto (2004-2019)",
+       caption = "Source: Toronto Police Services (2020)") +
+  theme_light()
+```
+
+```{r}
+data %>% filter(
+  Homicide_Type == "Shooting"
+) %>%
+  ggplot(aes(x = Occurrence_year)) +
+  geom_bar() +
+  labs(x = "Occurrence Year",
+       y = "Number",
+       title = "Cases of Shooting in Toronto",
+       caption = "Source: Toronto Police Services (2020)") +
+  theme_light()
+```
+
+
+```{r}
+data %>% filter(
+  Homicide_Type == "Stabbing"
+) %>%
+  ggplot(aes(x = Occurrence_year)) +
+  geom_bar() +
+  labs(x = "Occurrence Year",
+       y = "Number",
+       title = "Cases of Stabbing in Toronto",
+       caption = "Source: Toronto Police Services (2020)") +
+  theme_light()
+```
+
 
 ## R Markdown
 
@@ -30,3 +132,24 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# References
+
+- Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. R
+  package version 2.3.2. https://CRAN.R-project.org/package=devtools
+- Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020). dplyr: A Grammar of Data
+  Manipulation. R package version 1.0.0. https://CRAN.R-project.org/package=dplyr
+- Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
+  https://doi.org/10.21105/joss.01686
+- Toronto Police Services (2020). Homicide: This dataset includes all Homicides from 2004 to 2019. https://open.toronto.ca/dataset/homicide/   
+- JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. https://rmarkdown.rstudio.com
+- R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
+- Hao Zhu (2020). kableExtra: Construct Complex Table
+  with 'kable' and Pipe Syntax.
+  http://haozhu233.github.io/kableExtra/,
+  https://github.com/haozhu233/kableExtra.
+- Elin Waring, Michael Quinn, Amelia McNamara, Eduardo
+  Arino de la Rubia, Hao Zhu and Shannon Ellis (2020).
+  skimr: Compact and Flexible Summaries of Data.
+  https://docs.ropensci.org/skimr (website),
+  https://github.com/ropensci/skimr.
