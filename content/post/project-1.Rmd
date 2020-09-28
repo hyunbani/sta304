@@ -38,28 +38,28 @@ data <- filter(datastore_resources, row_number()==1) %>% get_resource()
 
 # Introduction
 
-Three paragraph statement.
+This research looks at homicide cases in Toronto from 2004 to 2019. The dataset was taken from Open Data Toronto. 
 
-First paragraph: General. Motivational. Majors specific finding. 
+The main interests are on the type of homicide and the occurrence year. I expected that the cases of homicide would increase with time but the results show that the number did not really increase with time. 
 
-Second paragraph: More about what you did and found.
-
-Third paragraph: Outline of the paper. Future work. Weaknesses.
+Another interest was to find which area has the most cases but there are 134 unique areas in the data so it was difficult to represent the results in a graph. Furthermore, there are only 3 given homicide types, and one of them is 'other', so it is not clear what types are included in 'other'.
 
 # Data
 
-The Open Data Toronto Dataset is ...
+The Open Data Toronto Dataset is Homicide and the first six rows of it are shown below. 
 ```{r, message=FALSE, warning=FALSE}
 kable(head(data)) %>%
   kable_styling(font_size = 7)
 ```
-
+The main variables we focus on are Occurence_year and Homicide_Type. The 3 homicide types in this dataset are shooting, stabbing and other. The dates are from 2004 to 2019. 
 
 
 ```{r, message=FALSE, warning=FALSE}
 skimr::skim(data)
 ```
 
+
+# Graphs
 
 
 ```{r, echo=FALSE}
@@ -72,7 +72,7 @@ data %>%
        caption = "Source: Toronto Police Services (2020)") +
   theme_light()
 ```
-
+The graph is not skewed and is not very steady as well. There is no clear pattern so it would be hard to guess future number of cases as well. 
 
 ```{r, echo=FALSE}
 data %>%
@@ -84,66 +84,20 @@ data %>%
        caption = "Source: Toronto Police Services (2020)") +
   theme_light()
 ```
+It is clear that most cases of homicide are due to shooting. The second most is due to stabbing but it does not even occur half as much as shooting. 
 
-```{r}
-data %>% filter(
-  Homicide_Type == "Shooting"
-) %>%
-  ggplot(aes(x = Occurrence_year)) +
-  geom_bar() +
-  labs(x = "Occurrence Year",
-       y = "Number",
-       title = "Cases of Shooting in Toronto",
-       caption = "Source: Toronto Police Services (2020)") +
-  theme_light()
-```
-
-
-```{r}
-data %>% filter(
-  Homicide_Type == "Stabbing"
-) %>%
-  ggplot(aes(x = Occurrence_year)) +
-  geom_bar() +
-  labs(x = "Occurrence Year",
-       y = "Number",
-       title = "Cases of Stabbing in Toronto",
-       caption = "Source: Toronto Police Services (2020)") +
-  theme_light()
-```
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 # References
 
 - Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. R
-  package version 2.3.2. https://CRAN.R-project.org/package=devtools
+  package version 2.3.2. https://CRAN.R-project.org/package=devtools.
 - Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020). dplyr: A Grammar of Data
-  Manipulation. R package version 1.0.0. https://CRAN.R-project.org/package=dplyr
+  Manipulation. R package version 1.0.0. https://CRAN.R-project.org/package=dplyr.
 - Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
-  https://doi.org/10.21105/joss.01686
-- Toronto Police Services (2020). Homicide: This dataset includes all Homicides from 2004 to 2019. https://open.toronto.ca/dataset/homicide/   
-- JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. https://rmarkdown.rstudio.com
-- R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
+  https://doi.org/10.21105/joss.01686.
+- Toronto Police Services (2020). Homicide: This dataset includes all Homicides from 2004 to 2019. https://open.toronto.ca/dataset/homicide/.   
+- JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. https://rmarkdown.rstudio.com.
+- R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/.
 - Hao Zhu (2020). kableExtra: Construct Complex Table
   with 'kable' and Pipe Syntax.
   http://haozhu233.github.io/kableExtra/,
