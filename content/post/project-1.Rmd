@@ -2,7 +2,7 @@
 title: "Homicide in Toronto"
 author: "Rachel Hyunbin Oh"
 date: 2020-09-24T21:13:14-05:00
-abstract: "Four sentences"
+abstract: It is important that homicide rates reduce to live in a safe world. In this paper we explore Open Data Toronto dataset about homicide in Toronto from 2004 to 2019. We find that homicide rates in Toronto did not increase or decrease steadily, and that shooting is a major problem. Our findings have implications for a change in firearm regulations in Canada.
 bibliography: "references.bib"
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
@@ -47,14 +47,14 @@ Another interest was to find which area has the most cases but there are 134 uni
 # Data
 
 The Open Data Toronto Dataset is Homicide and the first six rows of it are shown below. 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 kable(head(data)) %>%
   kable_styling(font_size = 7)
 ```
 The main variables we focus on are Occurence_year and Homicide_Type. The 3 homicide types in this dataset are shooting, stabbing and other. The dates are from 2004 to 2019. 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 skimr::skim(data)
 ```
 

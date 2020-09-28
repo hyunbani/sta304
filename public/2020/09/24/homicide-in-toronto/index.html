@@ -22,11 +22,6 @@
 
 
 
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
 <link rel="stylesheet" href="../../../../css/fonts.css" media="all">
 <link rel="stylesheet" href="../../../../css/main.css" media="all">
 
@@ -46,8 +41,6 @@
 
   <ul class="nav-links">
     
-    <li><a href="../../../../about/">About</a></li>
-    
     <li><a href="https://github.com/hyunbani/sta304">GitHub</a></li>
     
   </ul>
@@ -66,7 +59,7 @@
     <h1 class="article-title">Homicide in Toronto</h1>
 
     
-    <span class="article-date">Rachel Hyunbin Oh / 2020-09-24 / Four sentences</span>
+    <span class="article-date">Rachel Hyunbin Oh / 2020-09-24 / It is important that homicide rates reduce to live in a safe world. In this paper we explore Open Data Toronto dataset about homicide in Toronto from 2004 to 2019. We find that homicide rates in Toronto did not increase or decrease steadily, and that shooting is a major problem. Our findings have implications for a change in firearm regulations in Canada.</span>
     
 
     <div class="article-content">
@@ -83,9 +76,7 @@
 </div>
 <div id="data" class="section level1">
 <h1>Data</h1>
-<p>The Open Data Toronto Dataset is Homicide and the first six rows of it are shown below.</p>
-<pre class="r"><code>kable(head(data)) %&gt;%
-  kable_styling(font_size = 7)</code></pre>
+The Open Data Toronto Dataset is Homicide and the first six rows of it are shown below.
 <table class="table" style="font-size: 7px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -380,7 +371,6 @@ POINT (-79.39393 43.64274)
 </tbody>
 </table>
 <p>The main variables we focus on are Occurence_year and Homicide_Type. The 3 homicide types in this dataset are shooting, stabbing and other. The dates are from 2004 to 2019.</p>
-<pre class="r"><code>skimr::skim(data)</code></pre>
 <table style='width: auto;'
         class='table table-condensed'>
 <caption>
@@ -1010,18 +1000,6 @@ skimr: Compact and Flexible Summaries of Data.
 
     </div>
     
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
 
     
 
