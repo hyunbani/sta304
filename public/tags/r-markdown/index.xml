@@ -6,13 +6,13 @@
     <description>Recent content in R Markdown on Rachel&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Sep 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>/2020/07/20/introduction/</link>
-      <pubDate>Mon, 20 Jul 2020 21:13:14 -0500</pubDate>
+      <link>/2020/09/27/introduction/</link>
+      <pubDate>Sun, 27 Sep 2020 21:13:14 -0500</pubDate>
       
-      <guid>/2020/07/20/introduction/</guid>
+      <guid>/2020/09/27/introduction/</guid>
       <description>Abstract My abstract.
  Introduction We us Wickham et al. (2019).
  R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
